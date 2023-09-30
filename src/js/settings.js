@@ -43,6 +43,8 @@ export const select = {
         peopleAmount: '.people-amount',
         hoursAmount: '.hours-amount',
         tables: '.floor-plan .table',
+        floorPlan: '.floor-plan',
+        tableSelected: '.table.selected',
     },
     nav: {
         links: '.main-nav a',
@@ -68,7 +70,7 @@ export const select = {
         remove: '[href="#remove"]',
     },
     // CODE ADDED END
-};    
+};
 export const classNames = {
     menuProduct: {
         wrapperActive: 'active',
@@ -82,6 +84,8 @@ export const classNames = {
     booking: {
         loading: 'loading',
         tableBooked: 'booked',
+        tableSelected: 'selected',
+        table: 'table',
     },
     nav: {
         active: 'active',
