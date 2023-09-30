@@ -1,4 +1,4 @@
-import { templates, select, settings } from '../settings.js';
+import { templates, select, settings} from '../settings.js';
 import utils from '../utils.js';
 import AmountWidget from './AmountWidget.js';
 import DatePicker from './DatePicker.js';
@@ -44,7 +44,7 @@ class Booking {
         const urls = {
             booking: settings.db.url + '/' + settings.db.bookings
                 + '?' + params.booking.join('&'),
-            eventCurrent: settings.db.url + '/' + settings.db.events
+            eventsCurrent: settings.db.url + '/' + settings.db.events
                 + '?' + params.eventsCurrent.join('&'),
             eventsRepeat: settings.db.url + '/' + settings.db.events
                 + '?' + params.eventsRepeat.join('&'),
@@ -66,11 +66,12 @@ class Booking {
                 eventsRepeatResponse.json(),
             ]);
         })
-            .then(function ([bookings, eventsCurrent, eventsRepeat]){
-                console.log(bookings);
-                console.log(eventsCurrent);
-                console.log(eventsRepeat);
-            });
+        .then(function([bookings, eventsCurrent, eventsRepeat]){
+            console.log(bookings);
+            console.log(eventsCurrent);
+            console.log(eventsRepeat);
+            
+        });
     }
 
     render(element) {
