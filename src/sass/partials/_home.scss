@@ -1,31 +1,15 @@
 .home-buttons {
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
     margin-top: 40px;
-  }
-  
-  .home-button {
+}
+
+.home-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 500px; 
-    height: 100px;
-    background-position: center center;
-    text-align: center;
-    color: white;
-    text-decoration: none;
-    padding: 0px;
-    border: none;
-    border-radius: 10px;
-    flex-direction: column; 
-  }
-  
-  .home-button2 {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%; 
+    width: 500px;
     height: 100px;
     background-position: center center;
     text-align: center;
@@ -35,32 +19,58 @@
     border: none;
     border-radius: 10px;
     flex-direction: column;
-  }
-  
-  .home-button {
+    position: relative;
+    transition-duration: 0.5s;
+    /* Dodanie efektu przejścia */
+}
+
+.home-button:hover p {
+    transform: translateY(-5px);
+    /* Przesuń tekst o 5 pikseli w górę */
+    transition: transform 0.5s;
+    /* Dodaj płynność animacji */
+}
+
+.home-button2 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+    background-position: center center;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    padding: 0px;
+    border: none;
+    border-radius: 10px;
+    flex-direction: column;
+}
+
+.home-button {
     background-image: url('https://i.postimg.cc/XJ0GpLYq/pizza-1.jpg');
     font-size: 20px;
-  }
-  
-  .home-button2 {
+}
+
+.home-button2 {
     background-color: #ff6b6b;
     font-size: 15px;
-  }
-  
-  .home-button h1,
-  .home-button2 h1 {
+}
+
+.home-button h1,
+.home-button2 h1 {
     font-size: 20px;
     margin: 0;
-  }
-  
-  .home-button h2,
-  .home-button2 h2 {
+}
+
+.home-button h2,
+.home-button2 h2 {
     font-size: 15px;
     margin: 0;
-  }
-  
-  
-  .main-carousel {
+}
+
+
+.main-carousel {
     width: 800px;
     margin-top: 80px;
     margin-right: auto;
@@ -68,42 +78,95 @@
     margin-left: auto;
     justify-content: center;
     display: block;
-  }
-  
-  .carousel-cell img {
+}
+
+.carousel-cell img {
     max-width: 250px;
     float: left;
     margin-right: 20px;
-  }
-  
-  .carousel-cell .text {
+}
+
+
+.carousel-cell .text {
     overflow: hidden;
     float: left;
     width: calc(60% - 15px);
     box-sizing: border-box;
     padding: 10px;
-  }
-  
-  .image-container {
+}
+
+.image-container {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
     margin: 80px 200px 60px 200px;
-  }
-  
-  .image {
+}
+
+.image {
+    position: relative;
+    /* Wymagane, aby pozycjonować ikonkę w odniesieniu do obrazu */
     width: 280px;
     height: 280px;
     margin-right: 10px;
     box-sizing: border-box;
     overflow: hidden;
-    position: relative;
-  }
-  
-  .image img {
+}
+
+.image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-  
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Kolor tła overlay z przezroczystością */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Ukryj overlay na początku */
+    transition: opacity 0.3s ease; /* Dodaj płynny efekt przejścia */
+}
+
+.image:hover .overlay {
+    opacity: 1; /* Wyświetl overlay po najechaniu */
+}
+
+/* Stylowanie ikonki Font Awesome */
+.overlay i {
+    font-size: 24px;
+    color: white;
+    margin: 0 10px; /* Dodaj odstęp między ikonkami */
+}
+
+.layer {
+    color: #ff6b6b;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+}
+i{
+    font-size: 24px;
+}
+
+i:hover{
+    color: $color-main;
+}
+
+/* Stylowanie ikonki Font Awesome */
+.image:hover .layer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
