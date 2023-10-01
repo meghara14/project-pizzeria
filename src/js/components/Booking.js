@@ -16,6 +16,56 @@ class Booking {
 
     }
 
+    sendBooking() {
+        const thisBooking = this;
+        const url = settings.db.url + '/' + settings.db.bookings;
+        const payload = {
+            date: thisBooking.datePicker.value,
+            hour: thisBooking.hourPicker.value,
+            table: parseInt(thisBooking.selectedTable),
+            duration: parseInt(thisBooking.hoursAmount.value),
+            ppl: parseInt(thisBooking.peopleAmount.value),
+            starters: [],
+            phone: thisBooking.dom.phone.value,
+            address: thisBooking.dom.address.value,
+        };
+
+        for (let option of thisBooking.dom.starters) {
+            if (option.checked && !payload.starters.includes(option)) {
+                payload.starters.push(option.value);
+            }
+        }
+
+        if (payload.starters.includes('bread') && !payload.starters.includes('water')) {
+            payload.starters.unshift('water');
+        }
+
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload),
+        };
+
+        if (!isNaN(payload.table)) {
+            fetch(url, options)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (parsedResponse) {
+                    console.log('parsedResponse: ', parsedResponse);
+    
+                    thisBooking.makeBooked(payload.date, payload.hour, payload.duration, payload.table);
+                })
+                .then(function () {
+                    thisBooking.updateDOM();
+                });
+        } else {
+            alert('Please select a Table.');
+       
+        }
+    }    
     getData() {
         const thisBooking = this;
 
@@ -174,27 +224,38 @@ class Booking {
 
         thisBooking.dom.tables = thisBooking.dom.wrapper.querySelectorAll(select.booking.tables);
         thisBooking.dom.floorPlan = thisBooking.dom.wrapper.querySelector(select.booking.floorPlan);
-
+        
+        thisBooking.dom.address = thisBooking.dom.wrapper.querySelector(select.booking.address);
+        thisBooking.dom.phone = thisBooking.dom.wrapper.querySelector(select.booking.phone);
+        thisBooking.dom.submitButton = thisBooking.dom.wrapper.querySelector(select.booking.sendButton);
+        thisBooking.dom.ppl = thisBooking.dom.wrapper.querySelector(select.booking.ppl);
+        thisBooking.dom.duration = thisBooking.dom.wrapper.querySelector(select.booking.hours);
+        thisBooking.dom.starters = thisBooking.dom.wrapper.querySelectorAll(select.booking.checkbox);
+        thisBooking.dom.form = thisBooking.dom.wrapper.querySelector(select.booking.form);
     }
 
     initWidgets() {
         const thisBooking = this;
         thisBooking.peopleAmount = new AmountWidget(thisBooking.dom.peopleAmount);
+        thisBooking.hoursAmount = new AmountWidget(thisBooking.dom.hoursAmount);
+        thisBooking.datePicker = new DatePicker(thisBooking.dom.datePicker);
+        thisBooking.hourPicker = new HourPicker(thisBooking.dom.hourPicker);
+
         thisBooking.peopleAmount.dom.input.addEventListener('input', function () {
             thisBooking.resetTableSelection();
         });
 
-        thisBooking.hoursAmount = new AmountWidget(thisBooking.dom.hoursAmount);
+
         thisBooking.hoursAmount.dom.input.addEventListener('input', function () {
             thisBooking.resetTableSelection();
         });
 
-        thisBooking.datePicker = new DatePicker(thisBooking.dom.datePicker);
+
         thisBooking.datePicker.dom.input.addEventListener('input', function () {
             thisBooking.resetTableSelection();
         });
 
-        thisBooking.hourPicker = new HourPicker(thisBooking.dom.hourPicker);
+
         thisBooking.hourPicker.dom.input.addEventListener('input', function () {
             thisBooking.resetTableSelection();
         });
@@ -249,6 +310,7 @@ class Booking {
             selectedTable.classList.remove(classNames.booking.tableSelected);
         }
     }
+
 }
 
 
