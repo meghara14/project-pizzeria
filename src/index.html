@@ -11,6 +11,7 @@
   <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="vendor\range-slider.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -24,8 +25,9 @@
           <h2 class="logo__subtitle">the best homemade Italian food</h2>
         </div>
         <div class="main-nav">
-          <a href="#order">Order</a>
-          <a href="#booking">Booking</a>
+          <a href="#home">Home</a>
+          <a href="#order">Order online</a>
+          <a href="#booking">Book a table</a>
         </div>
         <div id="cart" class="cart">
           <div class="cart__summary">
@@ -64,6 +66,39 @@
     </div>
   </header>
   <div id="pages">
+    <section id="home">
+      <div class="home-wrapper container">
+        <div class="home-buttons">
+          <div class="home-button">
+            <a href="#order" class="home-button" style="background-image: url('https://i.postimg.cc/XJ0GpLYq/pizza-1.jpg');">  
+              <span>Order Online</span>
+            </a>
+          </div>
+          <div class="home-button">
+            <a href="#booking" class="home-button" style="background-image: url('https://i.postimg.cc/zDtLh68b/pizza-2.jpg');">
+              <span>Book a Table</span>
+            </a>
+          </div>
+        </div>  
+
+          <div class="home button2">
+            <a href="#openinghours" class="home-button2" style="border-color: red;">
+            <h1>Opening hours:</h1>
+            <h2>TUE-SUN, 12PM-12AM </h2>
+            </a>
+          </div>
+        </div>
+      
+    
+
+
+
+
+
+
+
+
+    </section>
     <section id="order">
       <div id="product-list" class="product-list container"></div>
     </section>
@@ -71,6 +106,8 @@
       <div class="booking-wrapper container"></div>
     </section>
   </div>
+
+
   <script id="template-cart-product" type="text/x-handlebars-template">
     <li>
       <div class="widget-amount"> <!-- widget-amount -->
@@ -247,6 +284,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="vendor\range-slider.min.js"></script>
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <script src="js/app.js" type="module"></script>
 </body>
 

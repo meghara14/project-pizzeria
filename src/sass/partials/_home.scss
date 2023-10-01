@@ -1,0 +1,55 @@
+.home-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .home-button {
+    display: inline-flex;
+    align-items: center; /* Wyśrodkuj zawartość w pionie */
+    justify-content: center;
+    width: 400px; /* Aby dwa przyciski zajęły po równo szerokość strony */
+    height: 100px; /* Wysokość przycisków */
+    background-size: cover; /* Dopasuj rozmiar tła, aby wypełnić cały przycisk */
+    background-repeat: no-repeat; /* Wyłącz powtarzanie tła */
+    background-position: center center; /* Wyśrodkuj tło */
+    text-align: center ; /* Wyśrodkuj tekst */
+    color: #fff; /* Kolor tekstu */
+    text-decoration: none;
+    font-size: 20px;
+    padding: 0px;
+    margin: 3px;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .home-button2 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 800px;
+    height: 100px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    padding: 0px;
+    margin: 6px;
+    border: none;
+    background-color: #ff6b6b;
+    display: flex;
+    flex-direction: column; /* Ustaw flex-direction na column */
+    border-radius: 10px;
+  
+    h1 {
+      font-size: 20px;
+      margin: 0; /* Usuń domyślne marginesy <h1> */
+    }
+  
+    h2 {
+      font-size: 15px;
+      margin: 0; /* Usuń domyślne marginesy <h2> */
+    }
+  }
+  
