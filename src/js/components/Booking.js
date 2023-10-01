@@ -13,7 +13,7 @@ class Booking {
         thisBooking.initWidgets();
         thisBooking.getData();
         thisBooking.selectedTable = null;
-        
+
     }
 
     getData() {
@@ -155,6 +155,7 @@ class Booking {
                 table.classList.remove(classNames.booking.tableBooked);
             }
         }
+        thisBooking.resetTableSelection();
     }
 
     render(element) {
@@ -180,7 +181,6 @@ class Booking {
         const thisBooking = this;
         thisBooking.peopleAmount = new AmountWidget(thisBooking.dom.peopleAmount);
         thisBooking.peopleAmount.dom.input.addEventListener('input', function () {
-            // Wywołaj resetTableSelection() po zmianie liczby gości
             thisBooking.resetTableSelection();
         });
 
@@ -189,11 +189,11 @@ class Booking {
             thisBooking.resetTableSelection();
         });
 
-
         thisBooking.datePicker = new DatePicker(thisBooking.dom.datePicker);
         thisBooking.datePicker.dom.input.addEventListener('input', function () {
             thisBooking.resetTableSelection();
         });
+
         thisBooking.hourPicker = new HourPicker(thisBooking.dom.hourPicker);
         thisBooking.hourPicker.dom.input.addEventListener('input', function () {
             thisBooking.resetTableSelection();
@@ -213,49 +213,44 @@ class Booking {
         const thisBooking = this;
         const clickedElement = event.target;
 
-        // Sprawdź, czy kliknięty element jest stolikiem (tutaj możesz wykorzystać odpowiednią klasę lub atrybut)
         if (clickedElement.classList.contains(classNames.booking.table)) {
-            // Pobierz numer stolika (możesz to zrobić z pomocą odpowiedniego atrybutu lub innego sposobu)
             const tableNumber = clickedElement.getAttribute(settings.booking.tableIdAttribute);
 
-            // Sprawdź, czy stolik jest wolny (sprawdź w thisBooking.booked, czy nie ma go tam w danym dniu i godzinie)
             const isTableBooked = thisBooking.booked[thisBooking.date] &&
                 thisBooking.booked[thisBooking.date][thisBooking.hour] &&
                 thisBooking.booked[thisBooking.date][thisBooking.hour].includes(parseInt(tableNumber));
 
             if (isTableBooked) {
-                // Stolik jest zajęty - pokaż alert
                 alert('This table is already booked.');
             } else {
-                // Odznacz wcześniejszy wybrany stolik (jeśli istnieje)
                 const selectedTable = thisBooking.dom.floorPlan.querySelector('.' + classNames.booking.tableSelected);
                 if (selectedTable) {
-                    selectedTable.classList.remove(classNames.booking.tableSelected);
+                    if (selectedTable === clickedElement) {
+                        selectedTable.classList.remove(classNames.booking.tableSelected);
+                        thisBooking.selectedTable = null;
+                    } else {
+                        selectedTable.classList.remove(classNames.booking.tableSelected);
+                        clickedElement.classList.add(classNames.booking.tableSelected);
+                        thisBooking.selectedTable = tableNumber;
+                    }
+                } else {
+                    clickedElement.classList.add(classNames.booking.tableSelected);
+                    thisBooking.selectedTable = tableNumber;
                 }
-
-                // Zaznacz wybrany stolik klasą selected
-                clickedElement.classList.add(classNames.booking.tableSelected);
-
-                // Przypisz numer wybranego stolika do właściwości selectedTable
-                thisBooking.selectedTable = tableNumber;
             }
         }
+
     }
     resetTableSelection() {
         const thisBooking = this;
-    
-        if (thisBooking.peopleAmount.value !== thisBooking.peopleAmount.dom.input.defaultValue) {
-            console.log('Resetujemy wybór stolika.');
-            thisBooking.selectedTable = null;
-            const selectedTable = thisBooking.dom.floorPlan.querySelector('.' + classNames.booking.tableSelected);
-            if (selectedTable) {
-                selectedTable.classList.remove(classNames.booking.tableSelected);
-            }
-        } else {
-            console.log('Liczba gości została zmieniona, nie resetujemy wyboru stolika.');
+        thisBooking.selectedTable = null;
+        const selectedTable = thisBooking.dom.floorPlan.querySelector('.' + classNames.booking.tableSelected);
+        if (selectedTable) {
+            selectedTable.classList.remove(classNames.booking.tableSelected);
         }
     }
 }
+
 
 
 export default Booking;
