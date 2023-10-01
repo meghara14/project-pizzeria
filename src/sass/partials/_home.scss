@@ -1,55 +1,109 @@
 .home-buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 40px;
   }
   
   .home-button {
     display: inline-flex;
-    align-items: center; /* Wyśrodkuj zawartość w pionie */
+    align-items: center;
     justify-content: center;
-    width: 400px; /* Aby dwa przyciski zajęły po równo szerokość strony */
-    height: 100px; /* Wysokość przycisków */
-    background-size: cover; /* Dopasuj rozmiar tła, aby wypełnić cały przycisk */
-    background-repeat: no-repeat; /* Wyłącz powtarzanie tła */
-    background-position: center center; /* Wyśrodkuj tło */
-    text-align: center ; /* Wyśrodkuj tekst */
-    color: #fff; /* Kolor tekstu */
+    width: 500px; 
+    height: 100px;
+    background-position: center center;
+    text-align: center;
+    color: white;
     text-decoration: none;
-    font-size: 20px;
     padding: 0px;
-    margin: 3px;
     border: none;
     border-radius: 10px;
+    flex-direction: column; 
   }
   
   .home-button2 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 800px;
+    width: 100%; 
     height: 100px;
-    background-size: cover;
-    background-repeat: no-repeat;
     background-position: center center;
     text-align: center;
     color: white;
     text-decoration: none;
     padding: 0px;
-    margin: 6px;
     border: none;
-    background-color: #ff6b6b;
-    display: flex;
-    flex-direction: column; /* Ustaw flex-direction na column */
     border-radius: 10px;
+    flex-direction: column;
+  }
   
-    h1 {
-      font-size: 20px;
-      margin: 0; /* Usuń domyślne marginesy <h1> */
-    }
+  .home-button {
+    background-image: url('https://i.postimg.cc/XJ0GpLYq/pizza-1.jpg');
+    font-size: 20px;
+  }
   
-    h2 {
-      font-size: 15px;
-      margin: 0; /* Usuń domyślne marginesy <h2> */
-    }
+  .home-button2 {
+    background-color: #ff6b6b;
+    font-size: 15px;
+  }
+  
+  .home-button h1,
+  .home-button2 h1 {
+    font-size: 20px;
+    margin: 0;
+  }
+  
+  .home-button h2,
+  .home-button2 h2 {
+    font-size: 15px;
+    margin: 0;
+  }
+  
+  
+  .main-carousel {
+    width: 800px;
+    margin-top: 80px;
+    margin-right: auto;
+    margin-bottom: 80px;
+    margin-left: auto;
+    justify-content: center;
+    display: block;
+  }
+  
+  .carousel-cell img {
+    max-width: 250px;
+    float: left;
+    margin-right: 20px;
+  }
+  
+  .carousel-cell .text {
+    overflow: hidden;
+    float: left;
+    width: calc(60% - 15px);
+    box-sizing: border-box;
+    padding: 10px;
+  }
+  
+  .image-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 80px 200px 60px 200px;
+  }
+  
+  .image {
+    width: 280px;
+    height: 280px;
+    margin-right: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   
