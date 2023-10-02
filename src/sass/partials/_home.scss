@@ -21,14 +21,13 @@
     flex-direction: column;
     position: relative;
     transition-duration: 0.5s;
-    /* Dodanie efektu przejścia */
+    background-image: url('https://i.postimg.cc/XJ0GpLYq/pizza-1.jpg');
+    font-size: 20px;
 }
 
 .home-button:hover p {
     transform: translateY(-5px);
-    /* Przesuń tekst o 5 pikseli w górę */
     transition: transform 0.5s;
-    /* Dodaj płynność animacji */
 }
 
 .home-button2 {
@@ -45,14 +44,6 @@
     border: none;
     border-radius: 10px;
     flex-direction: column;
-}
-
-.home-button {
-    background-image: url('https://i.postimg.cc/XJ0GpLYq/pizza-1.jpg');
-    font-size: 20px;
-}
-
-.home-button2 {
     background-color: #ff6b6b;
     font-size: 15px;
 }
@@ -68,7 +59,13 @@
     font-size: 15px;
     margin: 0;
 }
+.order{
+    background-image: url(../../images/homepage/pizza-1.jpg);   
+}
 
+.book{
+    background-image: url(../../images/homepage/pizza-2.jpg);   
+}
 
 .main-carousel {
     width: 800px;
@@ -105,7 +102,6 @@
 
 .image {
     position: relative;
-    /* Wymagane, aby pozycjonować ikonkę w odniesieniu do obrazu */
     width: 280px;
     height: 280px;
     margin-right: 10px;
@@ -125,23 +121,22 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Kolor tła overlay z przezroczystością */
+    background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0; /* Ukryj overlay na początku */
-    transition: opacity 0.3s ease; /* Dodaj płynny efekt przejścia */
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .image:hover .overlay {
-    opacity: 1; /* Wyświetl overlay po najechaniu */
+    opacity: 1;
 }
 
-/* Stylowanie ikonki Font Awesome */
 .overlay i {
     font-size: 24px;
     color: white;
-    margin: 0 10px; /* Dodaj odstęp między ikonkami */
+    margin: 0 10px;
 }
 
 .layer {
@@ -163,7 +158,6 @@ i:hover{
     color: $color-main;
 }
 
-/* Stylowanie ikonki Font Awesome */
 .image:hover .layer {
     display: flex;
     justify-content: center;
