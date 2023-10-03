@@ -9,7 +9,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 500px;
+    width: 330px;
     height: 100px;
     background-position: center center;
     text-align: center;
@@ -68,7 +68,7 @@
 }
 
 .main-carousel {
-    width: 800px;
+    width: 660px;
     margin-top: 80px;
     margin-right: auto;
     margin-bottom: 80px;
@@ -95,15 +95,15 @@
 .image-container {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin: 80px 200px 60px 200px;
+    margin: 80px 310px 60px 330px;
 }
 
 .image {
     position: relative;
-    width: 280px;
-    height: 280px;
+    width: 210px;
+    height: 210px;
     margin-right: 10px;
     box-sizing: border-box;
     overflow: hidden;
