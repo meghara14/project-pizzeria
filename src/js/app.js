@@ -30,7 +30,7 @@ const app = {
     }
 
     thisApp.activatePage(pageMatchingHash);
-
+    console.log
     for (let link of thisApp.navLinks) {
       link.addEventListener('click', function (event) {
         const clickedElement = this;

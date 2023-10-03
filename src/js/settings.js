@@ -47,7 +47,7 @@ export const select = {
         tableSelected: '.table.selected',
     },
     nav: {
-        links: '.main-nav a',
+        links: '.main-nav a, .home-button',
     },
 
     // CODE ADDED START
